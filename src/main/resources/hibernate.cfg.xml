@@ -19,7 +19,7 @@
 
         <mapping class="model.car.Car"/>
         <mapping class="model.car.Engine"/>
-        <mapping class="model.car.Owner"/>
+        <mapping class="model.car.User"/>
 
 
     </session-factory>

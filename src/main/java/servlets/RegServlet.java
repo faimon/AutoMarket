@@ -1,5 +1,8 @@
 package servlets;
 
+import model.car.User;
+import store.HbmStore;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,11 +12,13 @@ import java.io.IOException;
 public class RegServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("front/reg.jsp").forward(req, resp);
+        req.getRequestDispatcher("/front/reg.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        HbmStore.instanceOf().saveUser(new User(req.getParameter("login"),
+                req.getParameter("password"), req.getParameter("phone")));
+        req.getRequestDispatcher("/index.html").forward(req, resp);
     }
 }

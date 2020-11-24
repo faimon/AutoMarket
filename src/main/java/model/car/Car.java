@@ -17,8 +17,9 @@ public class Car {
     @OneToOne
     private Engine engine;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Owner> owners = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Car(String model, String color, Engine engine) {
         this.model = model;
@@ -27,18 +28,6 @@ public class Car {
     }
 
     public Car() {
-    }
-
-    public void addOwner(Owner owner) {
-        owners.add(owner);
-    }
-
-    public List<Owner> getOwners() {
-        return owners;
-    }
-
-    public void setOwners(List<Owner> owners) {
-        this.owners = owners;
     }
 
     public int getId() {

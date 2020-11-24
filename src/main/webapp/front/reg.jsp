@@ -128,7 +128,7 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-                <input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+                <input type="phone" class="form-control" name="phone" placeholder="Phone number" required="required">
             </div>
         </div>
         <div class="form-group">
