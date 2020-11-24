@@ -1,5 +1,7 @@
 package store;
 
+import model.car.Car;
+import model.car.Engine;
 import model.car.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
@@ -58,6 +61,25 @@ public class HbmStore implements Store {
             }
             return resultUser;
         });
+    }
+
+    @Override
+    public void saveCar(Car car, Engine engine) {
+        tx(session -> {
+            session.save(engine);
+            return session.save(car);
+        });
+    }
+
+    @Override
+    public Collection<Car> findAllCars() {
+        return tx(session -> session.createQuery("select c from Car c", Car.class).list());
+
+    }
+
+    @Override
+    public Car findCarById(int id) {
+        return tx(session -> session.get(Car.class, id));
     }
 
 
