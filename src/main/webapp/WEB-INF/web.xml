@@ -31,4 +31,14 @@
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SaveCarServlet</servlet-name>
+        <servlet-class>servlets.SaveCarServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SaveCarServlet</servlet-name>
+        <url-pattern>/saveCar.do</url-pattern>
+    </servlet-mapping>
 </web-app>

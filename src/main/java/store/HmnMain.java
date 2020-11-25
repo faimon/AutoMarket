@@ -14,6 +14,6 @@ public class HmnMain {
 //                "Полный", engine, user);
 //        HbmStore.instanceOf().saveCar(car, engine);
       //  System.out.println(HbmStore.instanceOf().findAllCars());
-        System.out.println(HbmStore.instanceOf().findCarById(2));
+        System.out.println(HbmStore.instanceOf().findUserByName("admin"));
     }
 }

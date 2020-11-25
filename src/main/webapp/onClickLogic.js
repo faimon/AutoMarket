@@ -20,6 +20,7 @@ function authorize() {
                 $('#successLogin').addClass('alert-success')
                     .html('Добро пожаловать, ' + '<strong>' + data + '</strong>' +
                         '<a class="pl-5" href="/carsale/">Выйти</a>');
+                $('#addButton').removeClass("disabled").attr("href", "addCar.html?login=" + data);
             }
         }
     );

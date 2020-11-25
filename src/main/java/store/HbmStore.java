@@ -64,6 +64,20 @@ public class HbmStore implements Store {
     }
 
     @Override
+    public User findUserByName(String login) {
+        return tx(session -> {
+            User resultUser = null;
+            List<User> list = session.createQuery("FROM User WHERE login = :login")
+                    .setParameter("login", login)
+                    .list();
+            if (list.size() != 0) {
+                resultUser = list.get(0);
+            }
+            return resultUser;
+        });
+    }
+
+    @Override
     public void saveCar(Car car, Engine engine) {
         tx(session -> {
             session.save(engine);

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="addCar.css" type="text/css"/>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
@@ -19,59 +18,146 @@
 
 </head>
 <body>
+<form class="form-horizontal" style="width:60%">
+    <fieldset>
 
-<div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Click Me</button></div>
+        <!-- Form Name -->
+        <legend class="text-center">Добавить объявление</legend>
 
-
-<!-- line modal -->
-<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h3 class="modal-title" id="lineModalLabel">My Modal</h3>
-            </div>
-            <div class="modal-body">
-
-                <!-- content goes here -->
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <input type="file" id="exampleInputFile">
-                        <p class="help-block">Example block-level help text here.</p>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Check me out
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-
-            </div>
-            <div class="modal-footer">
-                <div class="btn-group btn-group-justified" role="group" aria-label="group button">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
-                    </div>
-                    <div class="btn-group btn-delete hidden" role="group">
-                        <button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
-                    </div>
-                </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="model">Модель</label>
+            <div class="col-md-4">
+                <input id="model" type="text" placeholder="Модель автомобиля" class="form-control input-md">
             </div>
         </div>
-    </div>
-</div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="yearRelease">Год выпуска</label>
+            <div class="col-md-4">
+                <input id="yearRelease" type="text" placeholder="Год выпуска" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="color">Цвет</label>
+            <div class="col-md-4">
+                <input id="color" type="text" placeholder="Цвет автомобиля" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">Тип двигателя</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="engine" id="radios-0" value="Бензиновый" checked="checked">
+                    Бензиновый
+                </label>
+                <label class="radio-inline" for="radios-1">
+                    <input type="radio" name="engine" id="radios-1" value="Дизельный">
+                    Дизельный
+                </label>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="powerEngine">Мощность двигателя, л.с.</label>
+            <div class="col-md-4">
+                <input id="powerEngine" type="text" placeholder="Мощность двигателя" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="capacityEngine">Объем двигателя, л</label>
+            <div class="col-md-4">
+                <input id="capacityEngine" type="text" placeholder="Объем двигателя" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="body">Тип кузова</label>
+            <div class="col-md-4">
+                <input id="body" type="text" placeholder="Тип кузова автомобиля" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">Тип коробки передач</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="mech1">
+                    <input type="radio" name="transmission" id="mech1" value="Автоматическая" checked="checked">
+                    Автоматическая
+                </label>
+                <label class="radio-inline" for="mech2">
+                    <input type="radio" name="transmission" id="mech2" value="Механическая">
+                    Механическая
+                </label>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">Привод</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="gear1">
+                    <input type="radio" name="gear" id="gear1" value="2WD" checked="checked">
+                    2WD
+                </label>
+                <label class="radio-inline" for="gear2">
+                    <input type="radio" name="gear" id="gear2" value="4WD">
+                    4WD
+                </label>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="mileage">Пробег, км</label>
+            <div class="col-md-4">
+                <input id="mileage" type="text" placeholder="Пробег автомобиля" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="price">Цена (в руб.)</label>
+            <div class="col-md-4">
+                <input id="price" type="text" placeholder="Цена автомобиля" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="desc">Дополнительно</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="desc" name="textarea"></textarea>
+            </div>
+        </div>
+
+        <!-- File Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="image">Добавить изображение</label>
+            <div class="col-md-4">
+                <input id="image" name="image" class="input-file" type="file">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Добавить объявление</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
 </body>
 </html>
