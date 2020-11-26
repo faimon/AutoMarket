@@ -11,15 +11,14 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
-public class HbmStore implements Store {
+public class PsqlStore implements Store {
     private SessionFactory sf;
 
-    private HbmStore() {
+    private PsqlStore() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure()
                 .build();
@@ -98,10 +97,10 @@ public class HbmStore implements Store {
 
 
     private static final class Lazy {
-        private static final HbmStore INSTANCE = new HbmStore();
+        private static final PsqlStore INSTANCE = new PsqlStore();
     }
 
-    public static HbmStore instanceOf() {
+    public static PsqlStore instanceOf() {
         return Lazy.INSTANCE;
     }
 

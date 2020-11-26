@@ -1,7 +1,7 @@
-package servlets;
+package controller.servlets;
 
 import model.car.User;
-import store.HbmStore;
+import store.PsqlStore;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ public class AuthServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         HttpSession httpSession = req.getSession();
-        User user = HbmStore.instanceOf().findUser(login, password);
+        User user = PsqlStore.instanceOf().findUser(login, password);
         PrintWriter printWriter = resp.getWriter();
         if (user == null) {
             printWriter.print("invalid");

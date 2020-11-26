@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>RegServlet</servlet-name>
-        <servlet-class>servlets.RegServlet</servlet-class>
+        <servlet-class>controller.servlets.RegServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>AuthServlet</servlet-name>
-        <servlet-class>servlets.AuthServlet</servlet-class>
+        <servlet-class>controller.servlets.AuthServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>SaveCarServlet</servlet-name>
-        <servlet-class>servlets.SaveCarServlet</servlet-class>
+        <servlet-class>controller.servlets.SaveCarServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

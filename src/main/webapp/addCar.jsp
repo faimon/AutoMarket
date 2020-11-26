@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +17,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+    <script src="onClickLogic.js" type="text/javascript"></script>
 </head>
 <body>
-<form class="form-horizontal" style="width:60%">
+<form class="form-horizontal" style="width:60%" action="<c:url value='/saveCar.do'/>"
+      method="post" enctype="multipart/form-data">
     <fieldset>
 
         <!-- Form Name -->
@@ -28,7 +31,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="model">Модель</label>
             <div class="col-md-4">
-                <input id="model" type="text" placeholder="Модель автомобиля" class="form-control input-md">
+                <input id="model" type="text" name="model" placeholder="Модель автомобиля"
+                       class="form-control input-md">
             </div>
         </div>
 
@@ -36,7 +40,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="yearRelease">Год выпуска</label>
             <div class="col-md-4">
-                <input id="yearRelease" type="text" placeholder="Год выпуска" class="form-control input-md">
+                <input id="yearRelease" type="text" name="yearRelease" placeholder="Год выпуска"
+                       class="form-control input-md">
             </div>
         </div>
 
@@ -44,7 +49,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="color">Цвет</label>
             <div class="col-md-4">
-                <input id="color" type="text" placeholder="Цвет автомобиля" class="form-control input-md">
+                <input id="color" type="text" name="color" placeholder="Цвет автомобиля" class="form-control input-md">
             </div>
         </div>
 
@@ -65,17 +70,19 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="powerEngine">Мощность двигателя, л.с.</label>
+            <label class="col-md-4 control-label">Мощность двигателя, л.с.</label>
             <div class="col-md-4">
-                <input id="powerEngine" type="text" placeholder="Мощность двигателя" class="form-control input-md">
+                <input name="powerengine" type="text" placeholder="Мощность двигателя"
+                       class="form-control input-md">
             </div>
         </div>
-
+e
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="capacityEngine">Объем двигателя, л</label>
             <div class="col-md-4">
-                <input id="capacityEngine" type="text" placeholder="Объем двигателя" class="form-control input-md">
+                <input id="capacityEngine" name="capacityEngine" type="text" placeholder="Объем двигателя"
+                       class="form-control input-md">
             </div>
         </div>
 
@@ -83,7 +90,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="body">Тип кузова</label>
             <div class="col-md-4">
-                <input id="body" type="text" placeholder="Тип кузова автомобиля" class="form-control input-md">
+                <input id="body" type="text" name="body" placeholder="Тип кузова автомобиля"
+                       class="form-control input-md">
             </div>
         </div>
 
@@ -121,7 +129,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="mileage">Пробег, км</label>
             <div class="col-md-4">
-                <input id="mileage" type="text" placeholder="Пробег автомобиля" class="form-control input-md">
+                <input id="mileage" type="text" name="mileage" placeholder="Пробег автомобиля"
+                       class="form-control input-md">
             </div>
         </div>
 
@@ -129,7 +138,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="price">Цена (в руб.)</label>
             <div class="col-md-4">
-                <input id="price" type="text" placeholder="Цена автомобиля" class="form-control input-md">
+                <input id="price" type="text" name="price" placeholder="Цена автомобиля" class="form-control input-md">
             </div>
         </div>
 
@@ -137,15 +146,15 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="desc">Дополнительно</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="desc" name="textarea"></textarea>
+                <textarea class="form-control" id="desc" name="desc"></textarea>
             </div>
         </div>
 
         <!-- File Button -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="image">Добавить изображение</label>
+            <label class="col-md-4 control-label" for="imgData">Добавить изображение</label>
             <div class="col-md-4">
-                <input id="image" name="image" class="input-file" type="file">
+                <input id="imgData" name="file" class="input-file" type="file">
             </div>
         </div>
 
@@ -153,7 +162,9 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Добавить объявление</button>
+                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary"
+                        onclick="return validate()">Добавить объявление
+                </button>
             </div>
         </div>
 

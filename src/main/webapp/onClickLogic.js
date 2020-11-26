@@ -20,9 +20,21 @@ function authorize() {
                 $('#successLogin').addClass('alert-success')
                     .html('Добро пожаловать, ' + '<strong>' + data + '</strong>' +
                         '<a class="pl-5" href="/carsale/">Выйти</a>');
-                $('#addButton').removeClass("disabled").attr("href", "addCar.html?login=" + data);
+                $('#addButton').removeClass("disabled").attr("href", "addCar.jsp?login=" + data);
             }
         }
     );
 }
+
+function validate() {
+    if ($('#model').val() === "" || $('#yearRelease').val() === "" ||
+        $('#color').val() === "" || $('#powerEngine').val() === "" ||
+        $('#capacityEngine').val() === "" || $('#body').val() === "" ||
+        $('#mileage').val() === "" || $('#price').val() === "") {
+        alert('Заполните все поля')
+        return false;
+    }
+}
+
+
 

@@ -1,7 +1,7 @@
-package servlets;
+package controller.servlets;
 
 import model.car.User;
-import store.HbmStore;
+import store.PsqlStore;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ public class RegServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HbmStore.instanceOf().saveUser(new User(req.getParameter("login"),
+        PsqlStore.instanceOf().saveUser(new User(req.getParameter("login"),
                 req.getParameter("password"), req.getParameter("phone")));
         req.getRequestDispatcher("/index.html").forward(req, resp);
     }
