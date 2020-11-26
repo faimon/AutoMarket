@@ -1,5 +1,6 @@
 package controller.servlets;
 
+import files.UploadPhoto;
 import model.car.Car;
 import model.car.Engine;
 import model.car.User;

@@ -41,4 +41,25 @@
         <servlet-name>SaveCarServlet</servlet-name>
         <url-pattern>/saveCar.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCarsServlet</servlet-name>
+        <servlet-class>controller.servlets.GetCarsServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetCarsServlet</servlet-name>
+        <url-pattern>/cars.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetPhotoServlet</servlet-name>
+        <servlet-class>controller.servlets.GetPhotoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetPhotoServlet</servlet-name>
+        <url-pattern>/photo</url-pattern>
+    </servlet-mapping>
 </web-app>
