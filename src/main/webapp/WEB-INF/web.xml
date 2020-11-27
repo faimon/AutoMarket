@@ -72,4 +72,24 @@
         <servlet-name>GetCarByIdServlet</servlet-name>
         <url-pattern>/carInfo</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCarsByUser</servlet-name>
+        <servlet-class>controller.servlets.GetCarsByUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetCarsByUser</servlet-name>
+        <url-pattern>/carsUser.auth</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>*.auth</url-pattern>
+    </filter-mapping>
 </web-app>

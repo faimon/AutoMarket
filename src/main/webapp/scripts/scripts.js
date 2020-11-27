@@ -19,14 +19,11 @@ function authorize() {
                 $('#loginForm').append('<div class="alert" id="successLogin" role="alert"> </div>');
                 $('#successLogin').addClass('alert-success')
                     .html('Добро пожаловать, ' + '<strong>' + data + '</strong>' +
-                        '<a class="pl-5" href="/carsale/">Выйти</a>');
+                        '<a class="pl-5" href="/carsale">Выйти</a>');
                 $('#addButton').removeClass("disabled").attr("href", "addCar.jsp?login=" + data);
             }
         }
     );
-}
-$(document).ready(function () {
-
 }
 
 function validate() {
@@ -45,7 +42,6 @@ $(document).ready(function () {
         url: 'http://localhost:8080/carsale/cars.do',
         dataType: 'json'
     }).done(function (data) {
-        console.log(data)
         data.forEach(car => {
             $('#table').append(
                 '<div class="row mt-3 border"> ' +
@@ -54,7 +50,7 @@ $(document).ready(function () {
                 '<img src="' + 'photo?name=' + car.pathImage + '"</a>' +
                 '</div>' +
                 '<div class="col-md-8 card-body ">' +
-                '<a href="/carsale/carInfo?id='+ car.id +'"><h3>' + car.model + ', ' + car.yearRelease + '</h3></a>' +
+                '<a href="/carsale/carInfo?id=' + car.id + '"><h3>' + car.model + ', ' + car.yearRelease + '</h3></a>' +
                 '<h5><strong>' + car.price.toLocaleString() + ' ₽ ' + '</strong></h5>' +
                 '<ul class="list-inline">' +
                 '<li class="list-inline-item">' + car.mileage.toLocaleString() + ' км,</li>' +
@@ -66,7 +62,6 @@ $(document).ready(function () {
                 '</div>');
         })
     }).fail(function (err) {
-        alert("error: " + err);
     });
 })
 

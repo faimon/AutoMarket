@@ -24,7 +24,8 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/acfc8580ab.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="car.css" type="text/css"/>
+    <script src="scripts/scripts.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/car.css" type="text/css"/>
 
     <style>
         .left, .right {
@@ -35,11 +36,18 @@
             float: left;
             width: 40%;
         }
+
         .sale {
             color: #228B22;
         }
+
         .saled {
             color: #B22222;
+        }
+        .glav {
+            position: relative;
+            top: 70px; /* This will move it 20px up */
+            left: -100px; /* This will move it 20px to the right */
         }
 
     </style>
@@ -54,7 +62,26 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6"><h2>Продажа <b>автомобилей</b></h2></div>
-                <a class="btn-link pt-2" href="/carsale/">Главная</a>
+                <div class="col-sm-6">
+                    <div class="container">
+                        <div class="form-inline glav">
+                            <a class="btn-link pt-2" href="/carsale/">Главная</a>
+                        </div>
+                        <div id="loginForm" class="form-inline" style="text-align: right">
+                            <c:if test="${login != null}">
+                                <div class="alert alert-success" id="successLogin" role="alert">
+                                    Добро пожаловать, <strong> ${login} </strong>
+                                    <a class="pl-5" href="/carsale">Выйти</a>
+                                </div>
+                            </c:if>
+                            <input type="text" class="form-control mr-sm-2" id="login" placeholder="Логин">
+                            <input type="text" class="form-control" id="password" placeholder="Пароль">
+                            <button type="submit" class="btn btn-primary ml-2" onclick="return authorize()">Войти
+                            </button>
+                            <a class="btn-link pt-2" href="/carsale/reg">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -64,7 +91,7 @@
                     <div class="col-md-9">
                         <div class="row py-2">
                             <div class="col-md-7">
-                                    <h3> Объявление № ${car.id}</h3>
+                                <h3> Объявление № ${car.id}</h3>
                             </div>
                         </div>
                     </div>
@@ -78,10 +105,10 @@
             <h5>Телефон продавца: ${car.user.phoneNumber} </h5>
             <br>
             <c:if test="${car.saleStatus == true}">
-                <h5 class="font-weight-light">Статус объявления: <span class="sale"> Продается</span> </h5>
+                <h5 class="font-weight-light">Статус объявления: <span class="sale"> Продается</span></h5>
             </c:if>
             <c:if test="${car.saleStatus == false}">
-                <h5 class="font-weight-light">Статус объявления: <span class="saled"> Продано</span> </h5>
+                <h5 class="font-weight-light">Статус объявления: <span class="saled"> Продано</span></h5>
             </c:if>
         </div>
 
@@ -90,7 +117,7 @@
                 <li class="list-group-item"><span class="font-weight-bolder">Модель: </span>${car.model}</li>
                 <li class="list-group-item"><span class="font-weight-bolder">Год выпуска: </span>${car.yearRelease}</li>
                 <li class="list-group-item"><span class="font-weight-bolder">Двигатель: </span>${car.engine.capacity} л,
-                 ${car.engine.power} л.с.
+                    ${car.engine.power} л.с.
 
                 </li>
                 <li class="list-group-item"><span class="font-weight-bolder">Тип двигателя: </span>${car.engine.type}
@@ -102,7 +129,8 @@
                 <li class="list-group-item"><span class="font-weight-bolder">Привод: </span>${car.gear}</li>
                 <li class="list-group-item"><span class="font-weight-bolder">Пробег: </span>${car.mileage}&nbsp;км</li>
                 <li class="list-group-item"><span class="font-weight-bolder">Цена: </span>${car.price} руб</li>
-                <li class="list-group-item"><span class="font-weight-bolder">Дополнительно : </span>${car.description}</li>
+                <li class="list-group-item"><span class="font-weight-bolder">Дополнительно : </span>${car.description}
+                </li>
             </ul>
         </div>
     </div>

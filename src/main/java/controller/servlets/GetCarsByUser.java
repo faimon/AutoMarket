@@ -1,5 +1,6 @@
 package controller.servlets;
 
+import com.google.gson.Gson;
 import store.PsqlStore;
 
 import javax.servlet.ServletException;
@@ -7,13 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 
-public class GetCarByIdServlet extends HttpServlet {
+public class GetCarsByUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
         req.setAttribute("login", req.getSession().getAttribute("login"));
-        req.setAttribute("car", PsqlStore.instanceOf().findCarById(id));
-        req.getRequestDispatcher("/car.jsp").forward(req, resp);
+        PrintWriter pw = new PrintWriter(resp.getOutputStream(), true, StandardCharsets.UTF_8);
+        String login = (String) req.getSession().getAttribute("login");
+        pw.write(new Gson().toJson(PsqlStore.instanceOf().findCarsByUser(login)));
+        pw.flush();
+        pw.close();
     }
 }

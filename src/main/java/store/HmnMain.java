@@ -1,5 +1,7 @@
 package store;
 
+import java.util.Iterator;
+
 public class HmnMain {
     public static void main(String[] args) {
 //        Engine engine = new Engine(249, 3.0f, "Бензиновый");
@@ -10,6 +12,6 @@ public class HmnMain {
 //                "Полный", engine, user);
 //        HbmStore.instanceOf().saveCar(car, engine);
       //  System.out.println(HbmStore.instanceOf().findAllCars());
-        System.out.println(PsqlStore.instanceOf().findUserByName("admin"));
+        System.out.println(PsqlStore.instanceOf().findCarsByUser("alex"));
     }
 }

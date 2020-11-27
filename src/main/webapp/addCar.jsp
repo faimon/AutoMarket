@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="onClickLogic1.js" type="text/javascript"></script>
+    <script src="scripts/scripts.js" type="text/javascript"></script>
 </head>
 <body>
 <form class="form-horizontal" style="width:60%" action="<c:url value='/saveCar.do'/>"
@@ -86,12 +86,20 @@ e
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="body">Тип кузова</label>
             <div class="col-md-4">
-                <input id="body" type="text" name="body" placeholder="Тип кузова автомобиля"
-                       class="form-control input-md">
+                <select id="body" name="body" class="form-control">
+                    <option hidden value="1">Выберите тип кузова</option>
+                    <option value="Седан">Седан</option>
+                    <option value="Хэтчбек">Хэтчбек</option>
+                    <option value="Внедорожник">Внедорожник</option>
+                    <option value="Кроссовер">Кроссовер</option>
+                    <option value="Универсал">Универсал</option>
+                    <option value="Купе">Купе</option>
+                    <option value="Минивен">Минивен</option>
+                </select>
             </div>
         </div>
 

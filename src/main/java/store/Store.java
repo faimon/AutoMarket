@@ -17,5 +17,7 @@ public interface Store extends AutoCloseable {
 
     Collection<Car> findAllCars();
 
+    Collection<Car> findCarsByUser(String login);
+
     Car findCarById(int id);
 }

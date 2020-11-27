@@ -91,6 +91,13 @@ public class PsqlStore implements Store {
     }
 
     @Override
+    public Collection<Car> findCarsByUser(String login) {
+        return tx(session -> session.createQuery("FROM Car AS c LEFT JOIN fetch c.user WHERE c.user.login = :login")
+                .setParameter("login", login)
+                .list());
+    }
+
+    @Override
     public Car findCarById(int id) {
         return tx(session -> session.get(Car.class, id));
     }
@@ -104,36 +111,6 @@ public class PsqlStore implements Store {
         return Lazy.INSTANCE;
     }
 
-    //    public void addNewHuman(Human human, String[] ids) {
-//        try (Session session = sf.openSession()) {
-//            session.beginTransaction();
-//
-//            for (String id : ids) {
-//                City city = session.find(City.class, Integer.parseInt(id));
-//                human.addCity(city);
-//            }
-//            session.save(human);
-//
-//            session.getTransaction().commit();
-//        } catch (Exception e) {
-//            sf.getCurrentSession().getTransaction().rollback();
-//        }
-//    }
-//
-//    public List<City> allCities() {
-//        List<City> rsl = new ArrayList<>();
-//        try (Session session = sf.openSession()) {
-//            session.beginTransaction();
-//
-//            rsl = session.createQuery("select c from City c", City.class).list();
-//
-//            session.getTransaction().commit();
-//        } catch (Exception e) {
-//            sf.getCurrentSession().getTransaction().rollback();
-//        }
-//        return rsl;
-//    }
-//
     @Override
     public void close() throws Exception {
         sf.close();

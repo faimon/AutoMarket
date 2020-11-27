@@ -33,6 +33,6 @@ public class SaveCarServlet extends HttpServlet {
         car.addPathImage(imagePath);
         UploadPhoto.saveImage(imagePath, file);
         PsqlStore.instanceOf().saveCar(car, engine);
-        req.getRequestDispatcher("index.html").forward(req, resp);
+        resp.sendRedirect("/index.html");
     }
 }
