@@ -25,6 +25,9 @@ function authorize() {
         }
     );
 }
+$(document).ready(function () {
+
+}
 
 function validate() {
     if ($('#model').val() === "" || $('#yearRelease').val() === "" ||
@@ -51,7 +54,7 @@ $(document).ready(function () {
                 '<img src="' + 'photo?name=' + car.pathImage + '"</a>' +
                 '</div>' +
                 '<div class="col-md-8 card-body ">' +
-                '<a href="#"><h3>' + car.model + ', ' + car.yearRelease + '</h3></a>' +
+                '<a href="/carsale/carInfo?id='+ car.id +'"><h3>' + car.model + ', ' + car.yearRelease + '</h3></a>' +
                 '<h5><strong>' + car.price.toLocaleString() + ' ₽ ' + '</strong></h5>' +
                 '<ul class="list-inline">' +
                 '<li class="list-inline-item">' + car.mileage.toLocaleString() + ' км,</li>' +

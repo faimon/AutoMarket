@@ -26,6 +26,7 @@ public class Car {
     private String gear;
     private String pathImage;
     private String description;
+    private boolean saleStatus;
 
     @OneToOne
     private Engine engine;
@@ -47,9 +48,18 @@ public class Car {
         this.description = description;
         this.engine = engine;
         this.user = user;
+        this.saleStatus = true;
     }
 
     public Car() {
+    }
+
+    public boolean isSaleStatus() {
+        return saleStatus;
+    }
+
+    public void setSaleStatus(boolean saleStatus) {
+        this.saleStatus = saleStatus;
     }
 
     public String getDescription() {

@@ -62,4 +62,14 @@
         <servlet-name>GetPhotoServlet</servlet-name>
         <url-pattern>/photo</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCarByIdServlet</servlet-name>
+        <servlet-class>controller.servlets.GetCarByIdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetCarByIdServlet</servlet-name>
+        <url-pattern>/carInfo</url-pattern>
+    </servlet-mapping>
 </web-app>
