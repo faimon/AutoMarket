@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +43,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="scripts/lk_scripts.js" type="text/javascript"></script>
+    <script src="scripts/cabinet_scripts.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -53,11 +55,24 @@
                 <div class="col-sm-6">
                     <div class="container">
                         <div id="loginForm" class="form-inline" style="text-align: right">
-                            <input type="text" class="form-control mr-sm-2" id="login" placeholder="Логин">
-                            <input type="text" class="form-control" id="password" placeholder="Пароль">
-                            <button type="submit" class="btn btn-primary ml-2" onclick="return authorize()">Войти
-                            </button>
-                            <a class="btn-link pt-2" href="/carsale/reg">Регистрация</a>
+                            <c:if test="${login != null}">
+                                <div class="alert alert-success" id="successLogin" role="alert">
+                                    Добро пожаловать, <strong> ${login} </strong>
+                                    <a class="pl-5" href="/carsale">Выйти</a>
+                                </div>
+                                <button type="button" class="btn btn-primary ml-2" onclick="return main()">Главная
+                                </button>
+                            </c:if>
+                            <c:if test="${login == null}">
+                                <div>
+                                    <input type="text" class="form-control mr-sm-2" id="login" placeholder="Логин">
+                                    <input type="text" class="form-control" id="password" placeholder="Пароль">
+                                    <button type="submit" class="btn btn-primary ml-2" onclick="return authorize()">
+                                        Войти
+                                    </button>
+                                </div>
+                                <a class="btn-link pt-2" href="/carsale/reg">Регистрация</a>
+                            </c:if>
                         </div>
                     </div>
                 </div>

@@ -92,4 +92,24 @@
         <filter-name>AuthFilter</filter-name>
         <url-pattern>*.auth</url-pattern>
     </filter-mapping>
+
+    <servlet>
+        <servlet-name>UserCabinetServlet</servlet-name>
+        <servlet-class>controller.servlets.UserCabinetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserCabinetServlet</servlet-name>
+        <url-pattern>/cabinet.auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateCarStatusServlet</servlet-name>
+        <servlet-class>controller.servlets.UpdateCarStatusServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCarStatusServlet</servlet-name>
+        <url-pattern>/update.auth</url-pattern>
+    </servlet-mapping>
 </web-app>

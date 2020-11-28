@@ -21,6 +21,7 @@ function authorize() {
                     .html('Добро пожаловать, ' + '<strong>' + data + '</strong>' +
                         '<a class="pl-5" href="/carsale">Выйти</a>');
                 $('#addButton').removeClass("disabled").attr("href", "addCar.jsp?login=" + data);
+                $('#loginForm').append('<a class="btn btn-success pt-1" href="/carsale/cabinet.auth">Перейти в личный кабинет</a>')
             }
         }
     );
@@ -69,6 +70,10 @@ function getPhone(clicked_id) {
     let button = $('#' + clicked_id + '');
     let phone = button.val();
     button.text("Телефон: " + phone);
+}
+
+function goToCabinet() {
+    window.location.href = "http://localhost:8080/carsale/"
 }
 
 

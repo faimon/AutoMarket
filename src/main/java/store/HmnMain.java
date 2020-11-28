@@ -12,6 +12,6 @@ public class HmnMain {
 //                "Полный", engine, user);
 //        HbmStore.instanceOf().saveCar(car, engine);
       //  System.out.println(HbmStore.instanceOf().findAllCars());
-        System.out.println(PsqlStore.instanceOf().findCarsByUser("alex"));
+        PsqlStore.instanceOf().updateStatusCar(22, true);
     }
 }

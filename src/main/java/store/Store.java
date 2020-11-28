@@ -15,6 +15,8 @@ public interface Store extends AutoCloseable {
 
     void saveCar(Car car, Engine engine);
 
+    void updateStatusCar(int id, boolean status);
+
     Collection<Car> findAllCars();
 
     Collection<Car> findCarsByUser(String login);

@@ -24,8 +24,16 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/acfc8580ab.js" crossorigin="anonymous"></script>
-    <script src="scripts/scripts.js" type="text/javascript"></script>
+    <script src="scripts/index_scripts.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/car.css" type="text/css"/>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script>
+        function main() {
+            window.location.href = "cabinet.jsp"
+        }
+    </script>
 
     <style>
         .left, .right {
@@ -44,16 +52,9 @@
         .saled {
             color: #B22222;
         }
-        .glav {
-            position: relative;
-            top: 70px; /* This will move it 20px up */
-            left: -100px; /* This will move it 20px to the right */
-        }
+
 
     </style>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
 </head>
 <body>
@@ -64,21 +65,26 @@
                 <div class="col-sm-6"><h2>Продажа <b>автомобилей</b></h2></div>
                 <div class="col-sm-6">
                     <div class="container">
-                        <div class="form-inline glav">
-                            <a class="btn-link pt-2" href="/carsale/">Главная</a>
-                        </div>
                         <div id="loginForm" class="form-inline" style="text-align: right">
+
                             <c:if test="${login != null}">
                                 <div class="alert alert-success" id="successLogin" role="alert">
                                     Добро пожаловать, <strong> ${login} </strong>
                                     <a class="pl-5" href="/carsale">Выйти</a>
                                 </div>
+                                <button type="button" class="btn btn-primary ml-2" onclick="return main()">Главная
+                                </button>
                             </c:if>
-                            <input type="text" class="form-control mr-sm-2" id="login" placeholder="Логин">
-                            <input type="text" class="form-control" id="password" placeholder="Пароль">
-                            <button type="submit" class="btn btn-primary ml-2" onclick="return authorize()">Войти
-                            </button>
-                            <a class="btn-link pt-2" href="/carsale/reg">Регистрация</a>
+                            <c:if test="${login == null}">
+                                <div>
+                                    <input type="text" class="form-control mr-sm-2" id="login" placeholder="Логин">
+                                    <input type="text" class="form-control" id="password" placeholder="Пароль">
+                                    <button type="submit" class="btn btn-primary ml-2" onclick="return authorize()">
+                                        Войти
+                                    </button>
+                                </div>
+                                <a class="btn-link pt-2" href="/carsale/reg">Регистрация</a>
+                            </c:if>
                         </div>
                     </div>
                 </div>

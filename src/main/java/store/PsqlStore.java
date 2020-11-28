@@ -85,6 +85,16 @@ public class PsqlStore implements Store {
     }
 
     @Override
+    public void updateStatusCar(int id, boolean status) {
+        tx(session -> {
+            Car car = session.get(Car.class, id);
+            car.setSaleStatus(status);
+            session.update(car);
+            return car;
+        });
+    }
+
+    @Override
     public Collection<Car> findAllCars() {
         return tx(session -> session.createQuery("select c from Car c", Car.class).list());
 
