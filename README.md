@@ -1,5 +1,5 @@
 # Проект "Автомаркет"
-
+[![Build Status](https://travis-ci.org/faimon/carSale.svg?branch=master)](https://travis-ci.org/faimon/carSale)
 
 ### Web приложение для продажи автомобилей.
 **Функциональность:**
