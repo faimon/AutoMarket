@@ -56,7 +56,6 @@ function updateStatus(clicked_id) {
             id: clicked_id,
         },
         function (data) {
-            alert(data)
             if (data === 'ok') {
                 let button = $('#' + clicked_id + '');
                 button.removeClass('btn-danger').addClass('btn-secondary').text('В архиве');

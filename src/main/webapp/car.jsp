@@ -79,11 +79,13 @@
                                 <div>
                                     <input type="text" class="form-control mr-sm-2" id="login" placeholder="Логин">
                                     <input type="text" class="form-control" id="password" placeholder="Пароль">
-                                    <button type="submit" class="btn btn-primary ml-2" onclick="return authorize()">
+                                    <a class="btn-link pt-2 mr-3" href="/carsale/">Главная</a>
+                                    <a class="btn-link pt-2 mr-3" href="/carsale/reg">Регистрация</a>
+                                    <button type="submit" class="btn btn-primary ml-2 pt-1" onclick="return authorize()">
                                         Войти
                                     </button>
+
                                 </div>
-                                <a class="btn-link pt-2" href="/carsale/reg">Регистрация</a>
                             </c:if>
                         </div>
                     </div>
