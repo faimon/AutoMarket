@@ -96,7 +96,7 @@ public class PsqlStore implements Store {
 
     @Override
     public Collection<Car> findAllCars() {
-        return tx(session -> session.createQuery("select c from Car c", Car.class).list());
+        return tx(session -> session.createQuery("select c from Car c WHERE c.saleStatus = true", Car.class).list());
 
     }
 
