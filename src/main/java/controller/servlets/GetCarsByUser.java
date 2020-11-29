@@ -1,7 +1,7 @@
 package controller.servlets;
 
 import com.google.gson.Gson;
-import store.PsqlStore;
+import service.PsqlStore;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -85,7 +85,7 @@
 
     <filter>
         <filter-name>AuthFilter</filter-name>
-        <filter-class>filter.AuthFilter</filter-class>
+        <filter-class>controller.filter.AuthFilter</filter-class>
     </filter>
 
     <filter-mapping>

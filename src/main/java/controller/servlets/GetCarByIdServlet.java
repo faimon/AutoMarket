@@ -1,6 +1,6 @@
 package controller.servlets;
 
-import store.PsqlStore;
+import service.PsqlStore;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -4,7 +4,7 @@ import files.UploadPhoto;
 import model.car.Car;
 import model.car.Engine;
 import model.car.User;
-import store.PsqlStore;
+import service.PsqlStore;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;

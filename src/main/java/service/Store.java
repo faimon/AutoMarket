@@ -1,4 +1,4 @@
-package store;
+package service;
 
 import model.car.Car;
 import model.car.Engine;
