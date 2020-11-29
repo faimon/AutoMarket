@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/acfc8580ab.js" crossorigin="anonymous"></script>
-    <script src="scripts/index_scripts.js" type="text/javascript"></script>
+    <script src="scripts/main_pagescripts.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/car.css" type="text/css"/>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -114,9 +115,15 @@
             <br>
             <c:if test="${car.saleStatus == true}">
                 <h5 class="font-weight-light">Статус объявления: <span class="sale"> Продается</span></h5>
+                <br>
+                <h5 class="font-weight-light">Дата публикации: <fmt:formatDate pattern="dd.M.yyyy" value="${car.created}" /></h5>
+
+
             </c:if>
             <c:if test="${car.saleStatus == false}">
                 <h5 class="font-weight-light">Статус объявления: <span class="saled"> Продано</span></h5>
+                <br>
+                <h5 class="font-weight-light">Дата публикации: <fmt:formatDate pattern="dd.M.yyyy" value="${car.created}" /></h5>
             </c:if>
         </div>
 

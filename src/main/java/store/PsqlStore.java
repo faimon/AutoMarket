@@ -11,7 +11,10 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
@@ -104,6 +107,26 @@ public class PsqlStore implements Store {
     public Collection<Car> findCarsByUser(String login) {
         return tx(session -> session.createQuery("FROM Car AS c LEFT JOIN fetch c.user WHERE c.user.login = :login")
                 .setParameter("login", login)
+                .list());
+    }
+
+    @Override
+    public Collection<Car> findCarsWithPhoto() {
+        return tx(session -> session.createQuery("FROM Car AS c WHERE c.saleStatus = true AND c.pathImage != '' ")
+                .list());
+    }
+
+    @Override
+    public Collection<Car> findCarsOnlyLastDay() {
+        return tx(session -> session.createQuery("FROM Car AS c WHERE c.created = :currDate")
+                .setParameter("currDate", new Date())
+                .list());
+    }
+
+    @Override
+    public Collection<Car> findCarsByModel(String model) {
+        return tx(session -> session.createQuery("FROM Car AS c WHERE c.model LIKE concat(:model, '%') ")
+                .setParameter("model", model)
                 .list());
     }
 

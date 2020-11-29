@@ -23,6 +23,7 @@ $(document).ready(function () {
                     '<li class="list-inline-item">' + car.body.toLocaleLowerCase() + ', </li>' +
                     '<li class="list-inline-item">' + car.gear + '</li>' + '</ul>' +
                     '<button id="' + car.id + '" type="button" class="btn btn-danger" value="" onclick="updateStatus(this.id)">Снять с продажи</button>\n' +
+                    '<span class="ml-3">Дата публикации: ' + car.created + '</span>' +
                     '</div> ' +
                     '</div>');
             } else {
@@ -41,6 +42,7 @@ $(document).ready(function () {
                     '<li class="list-inline-item">' + car.body.toLocaleLowerCase() + ', </li>' +
                     '<li class="list-inline-item">' + car.gear + '</li>' + '</ul>' +
                     '<button id="' + car.id + '" type="button" class="btn btn-secondary" value=""">В архиве</button>\n' +
+                    '<span class="ml-3">Дата публикации: ' + car.created + '</span>' +
                     '</div> ' +
                     '</div>');
             }

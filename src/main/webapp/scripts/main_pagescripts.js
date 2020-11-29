@@ -31,18 +31,34 @@ function validate() {
     if ($('#model').val() === "" || $('#yearRelease').val() === "" ||
         $('#color').val() === "" || $('#powerEngine').val() === "" ||
         $('#capacityEngine').val() === "" || $('#body').val() === "" ||
-        $('#mileage').val() === "" || $('#price').val() === "" || $('#imgData').val() === "") {
+        $('#mileage').val() === "" || $('#price').val() === "") {
         alert('Заполните все поля')
         return false;
     }
 }
 
 $(document).ready(function () {
+   getCars('selectType');
+})
+
+function filterCars(clicked_id) {
+    let select = $('#' + clicked_id + '');
+    if (select.val() === "onlyModel") {
+        $('#selectModel').css('display', 'block');
+    } else {
+        $('#selectModel').css('display', 'none');
+        getCars(clicked_id);
+    }
+}
+
+function getCars(clicked_id) {
+    let select = $('#' + clicked_id + '');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/carsale/cars.do',
+        url: 'http://localhost:8080/carsale/cars.do?type=' + select.val(),
         dataType: 'json'
     }).done(function (data) {
+        $('#table').empty();
         data.forEach(car => {
             $('#table').append(
                 '<div class="row mt-3 border"> ' +
@@ -59,12 +75,13 @@ $(document).ready(function () {
                 '<li class="list-inline-item">' + car.body.toLocaleLowerCase() + ', </li>' +
                 '<li class="list-inline-item">' + car.gear + '</li>' + '</ul>' +
                 '<button id="' + car.id + '" type="button" class="btn btn-outline-success" value="' + car.user.phoneNumber + '" onclick="getPhone(this.id)">Контакты продавца</button>\n' +
+                '<span class="ml-3">Дата публикации: ' + car.created + '</span>' +
                 '</div> ' +
                 '</div>');
         })
     }).fail(function (err) {
     });
-})
+}
 
 function getPhone(clicked_id) {
     let button = $('#' + clicked_id + '');

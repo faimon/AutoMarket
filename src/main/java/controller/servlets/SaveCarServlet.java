@@ -29,9 +29,11 @@ public class SaveCarServlet extends HttpServlet {
                 req.getParameter("transmission"), req.getParameter("gear"), req.getParameter("desc"),
                 engine, user);
         Part file = req.getPart("file");
-        String imagePath = Paths.get(file.getSubmittedFileName()).getFileName().toString();
-        car.addPathImage(imagePath);
-        UploadPhoto.saveImage(imagePath, file);
+        if (file != null) {
+            String imagePath = Paths.get(file.getSubmittedFileName()).getFileName().toString();
+            car.addPathImage(imagePath);
+            UploadPhoto.saveImage(imagePath, file);
+        }
         PsqlStore.instanceOf().saveCar(car, engine);
         resp.sendRedirect("/carsale/index.html");
     }

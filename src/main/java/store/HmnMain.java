@@ -1,5 +1,7 @@
 package store;
 
+import model.car.Car;
+
 import java.util.Iterator;
 
 public class HmnMain {
@@ -12,6 +14,8 @@ public class HmnMain {
 //                "Полный", engine, user);
 //        HbmStore.instanceOf().saveCar(car, engine);
       //  System.out.println(HbmStore.instanceOf().findAllCars());
-        PsqlStore.instanceOf().updateStatusCar(22, true);
+        for(Car car: PsqlStore.instanceOf().findCarsByModel("Volkswagen")) {
+            System.out.println(car.getModel());
+        }
     }
 }
