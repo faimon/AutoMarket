@@ -22,7 +22,6 @@ public class AuthServlet extends HttpServlet {
         }
         printWriter.write(login);
         printWriter.flush();
-        printWriter.close();
     }
 
     @Override
@@ -39,6 +38,5 @@ public class AuthServlet extends HttpServlet {
             printWriter.print(login);
         }
         printWriter.flush();
-        printWriter.close();
     }
 }

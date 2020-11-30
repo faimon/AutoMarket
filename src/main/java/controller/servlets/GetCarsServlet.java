@@ -32,6 +32,5 @@ public class GetCarsServlet extends HttpServlet {
             pw.write(new Gson().toJson(PsqlStore.instanceOf().findCarsByModel(type)));
         }
         pw.flush();
-        pw.close();
     }
 }

@@ -17,6 +17,5 @@ public class UpdateCarStatusServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.write("ok");
         out.flush();
-        out.close();
     }
 }

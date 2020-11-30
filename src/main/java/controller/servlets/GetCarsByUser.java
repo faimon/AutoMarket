@@ -19,6 +19,5 @@ public class GetCarsByUser extends HttpServlet {
         String login = (String) req.getSession().getAttribute("login");
         pw.write(new Gson().toJson(PsqlStore.instanceOf().findCarsByUser(login)));
         pw.flush();
-        pw.close();
     }
 }
